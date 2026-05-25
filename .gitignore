@@ -1,0 +1,29 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Build outputs
+dist/
+artifacts/openvizy/dist/
+artifacts/api-server/dist/
+
+# TS composite build artifacts
+lib/*/dist/
+lib/*/tsconfig.tsbuildinfo
+
+# Environment secrets — NEVER commit
+.env
+.env.local
+.env.production
+
+# Logs
+*.log
+pino-*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/

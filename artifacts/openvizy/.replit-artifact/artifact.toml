@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "OpenVizy - Free Music Video Generator"
+version = "1.0.0"
+id = "artifacts/openvizy"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 25566
+
+[services.development]
+run = "pnpm --filter @workspace/openvizy run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/openvizy", "run", "build" ]
+publicDir = "artifacts/openvizy/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "25566"
+BASE_PATH = "/"
