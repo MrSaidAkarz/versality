@@ -379,7 +379,7 @@ export default function Home() {
                   ["Lyrics",      "$0"],
                   ["All formats", "$0"],
                   ["Wait time",   "Instant"],
-                  ["Monthly",     "$15"],
+                  ["Per month",   "$15"],
                 ].map(([label, value]) => (
                   <div key={label} className="flex justify-between py-2.5 border-b border-border/40 last:border-0 text-sm">
                     <span className="text-muted-foreground">{label}</span>
