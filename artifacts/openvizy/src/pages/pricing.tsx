@@ -93,7 +93,7 @@ export default function Pricing() {
             <ul className="space-y-3 mb-8 flex-1">
               {[
                 "1 high-quality video render",
-                "All 6 visualizer templates",
+                "All 20 visualizer templates",
                 "All 3 aspect ratios",
                 "In-browser, instant",
                 "No watermark",
@@ -140,7 +140,7 @@ export default function Pricing() {
             <ul className="space-y-3 mb-8 flex-1">
               {[
                 { label: "10 renders / month", highlight: true },
-                { label: "All 6 visualizer templates" },
+                { label: "All 20 visualizer templates" },
                 { label: "All 3 aspect ratios — every time" },
                 { label: "Real-time audio analysis (Bass/Mid/High)" },
                 { label: "Studio controls (density, scale)" },

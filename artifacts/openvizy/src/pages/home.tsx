@@ -163,7 +163,7 @@ export default function Home() {
           {/* Stat bar — full width below grid */}
           <div className="mt-16 pt-8 border-t border-border/40 grid grid-cols-3 max-w-md gap-6">
             {[
-              { value: "6",    label: "Visual templates" },
+              { value: "20",   label: "Visual templates" },
               { value: "3",    label: "Aspect ratios"    },
               { value: "100%", label: "In-browser"         },
             ].map(({ value, label }) => (
