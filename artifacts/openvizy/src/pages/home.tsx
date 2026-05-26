@@ -80,20 +80,17 @@ export default function Home() {
             <div>
               <p className="eyebrow">
                 <span className="w-1 h-1 rounded-full bg-primary inline-block" />
-                Music video generator for independent artists
+                The come-up starts here.
               </p>
 
               <h1 className="text-5xl sm:text-6xl font-black tracking-tight leading-[1.05] mb-6">
-                Music videos for{" "}
-                <span className="gradient-text-animated">every artist.</span>
-                <br />
-                <span className="text-foreground/75 font-extrabold text-4xl sm:text-5xl">
-                  One flat rate. No per-song fees.
-                </span>
+                Music videos for the{" "}
+                <span className="gradient-text-animated">next generation.</span>
+
               </h1>
 
               <p className="text-base text-muted-foreground max-w-md mb-8 leading-relaxed">
-                Audio-reactive video generation in your browser — no queue, no gatekeeping.
+                Your music. Your visuals. No queue, no catch, no gatekeep.
               </p>
 
               <div className="flex flex-wrap gap-3 mb-10">
@@ -108,7 +105,7 @@ export default function Home() {
 
               {/* Trust row */}
               <div className="flex items-center gap-5 text-xs text-muted-foreground">
-                {["Export in 3 formats"].map((t) => (
+                {["Export in 3 formats", "Instant download", "Cancel anytime"].map((t) => (
                   <span key={t} className="flex items-center gap-1.5">
                     <CheckCircle2 className="w-3.5 h-3.5 text-chart-4 shrink-0" />
                     {t}
@@ -303,7 +300,7 @@ export default function Home() {
               {
                 icon: Shield,
                 title: "Flat pricing",
-                desc: "One simple subscription — no per-song fees and no hidden charges. Your costs stay predictable.",
+                desc: "1 simple subscription — no per-song fees and no hidden charges. Your costs stay predictable.",
                 iconColor: "text-primary",
                 iconBg:    "bg-primary/10",
               },
@@ -346,9 +343,9 @@ export default function Home() {
           <div className="text-center mb-14 reveal">
             <p className="eyebrow justify-center">Honest comparison</p>
             <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-3">
-              Same result. One charges. One doesn't.
+              Same result. Different charges.
             </h2>
-            <p className="text-muted-foreground text-sm">No opinion — just the math.</p>
+            <p className="text-muted-foreground text-sm">Just facts.</p>
           </div>
 
           <div className="grid grid-cols-2 gap-4 items-start">
@@ -378,11 +375,11 @@ export default function Home() {
                   <span className="text-[10px] font-bold bg-primary text-white px-2 py-0.5 rounded-full uppercase tracking-wide">Pro</span>
                 </div>
                 {[
-                  ["Any length",  "Included"],
-                  ["Lyrics",      "Included"],
-                  ["All formats", "Included"],
+                  ["Any length",  "$0"],
+                  ["Lyrics",      "$0"],
+                  ["All formats", "$0"],
                   ["Wait time",   "Instant"],
-                  ["Per month",   "$15"],
+                  ["Monthly",     "$15"],
                 ].map(([label, value]) => (
                   <div key={label} className="flex justify-between py-2.5 border-b border-border/40 last:border-0 text-sm">
                     <span className="text-muted-foreground">{label}</span>
@@ -402,13 +399,12 @@ export default function Home() {
         <div className="orb orb-blue  w-[380px] h-[380px] -bottom-20 left-0  opacity-10 animate-float-slow" />
 
         <div className="relative max-w-2xl mx-auto text-center reveal">
-          <p className="eyebrow justify-center">For independent artists</p>
+          <p className="eyebrow justify-center">The come-up starts here.</p>
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-4">
-            Built for the artists the world hasn't found yet
+            Made for the hidden talent
           </h2>
           <p className="text-muted-foreground mb-8 leading-relaxed text-sm max-w-lg mx-auto">
-            Versality started because great music deserves great visuals — regardless of budget.
-            Upload your track, pick a style, and share.
+            Versality was created by Blessed the Artist and her development team — one platform built to give upcoming artists the resources and reach they need.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center mb-8">
             <Link
@@ -420,7 +416,7 @@ export default function Home() {
             </Link>
           </div>
           <div className="flex flex-wrap items-center justify-center gap-5 text-xs text-muted-foreground">
-            {["Instant download"].map((t) => (
+            {["Export in 3 formats", "Instant download", "Cancel anytime"].map((t) => (
               <span key={t} className="flex items-center gap-1.5">
                 <CheckCircle2 className="w-3.5 h-3.5 text-chart-4" />
                 {t}
