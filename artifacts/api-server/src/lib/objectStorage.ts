@@ -155,20 +155,51 @@ export class ObjectStorageService {
   }
 
   normalizeObjectEntityPath(rawPath: string): string {
-    if (!rawPath.startsWith("https://storage.googleapis.com/")) {
+    // Already normalized
+    if (rawPath.startsWith("/objects/")) {
+      return rawPath;
+    }
+
+    // Handle signed GCS URLs (may come from storage.googleapis.com or storage.cloud.google.com)
+    let isGcsUrl = false;
+    try {
+      const u = new URL(rawPath);
+      isGcsUrl =
+        u.protocol === "https:" &&
+        (u.hostname === "storage.googleapis.com" ||
+          u.hostname.endsWith(".storage.googleapis.com") ||
+          u.hostname === "storage.cloud.google.com");
+    } catch {
+      // not a URL — fall through
+    }
+
+    if (!isGcsUrl) {
       return rawPath;
     }
 
     const url = new URL(rawPath);
-    const rawObjectPath = url.pathname;
+    // pathname = /<bucketName>/<objectName> — strip leading slash
+    const rawObjectPath = url.pathname.startsWith("/")
+      ? url.pathname.slice(1)
+      : url.pathname;
 
     let objectEntityDir = this.getPrivateObjectDir();
+    // objectEntityDir may be "/bucketName/prefix" — strip leading slash for comparison
+    if (objectEntityDir.startsWith("/")) {
+      objectEntityDir = objectEntityDir.slice(1);
+    }
     if (!objectEntityDir.endsWith("/")) {
       objectEntityDir = `${objectEntityDir}/`;
     }
 
     if (!rawObjectPath.startsWith(objectEntityDir)) {
-      return rawObjectPath;
+      // Fallback: extract the uploads/<uuid> portion by looking for /uploads/
+      const uploadsIdx = rawObjectPath.indexOf("/uploads/");
+      if (uploadsIdx !== -1) {
+        const entityId = rawObjectPath.slice(uploadsIdx + 1); // "uploads/<uuid>"
+        return `/objects/${entityId}`;
+      }
+      return rawPath;
     }
 
     const entityId = rawObjectPath.slice(objectEntityDir.length);
