@@ -129,30 +129,18 @@ export default function Home() {
                     <span className="w-1.5 h-1.5 rounded-full bg-red-400 animate-pulse" />
                     <span className="text-[10px] text-white font-semibold uppercase tracking-wider">Live Preview</span>
                   </div>
-                  {/* Visualizer — crossfade via opacity */}
-                  <div
-                    className="transition-opacity duration-350"
-                    style={{ opacity: previewVisible ? 1 : 0 }}
-                  >
-                    <CanvasVisualizer
-                      style={preview?.style ?? "waveform"}
-                      color={preview?.color ?? "#ec4899"}
-                      width={480}
-                      height={300}
-                      className="w-full h-auto"
-                    />
-                  </div>
+                  {/* Static cover image */}
+                  <img
+                    src="https://base44.app/api/apps/6a1504906b51dfc9be1e230a/files/mp/public/6a1504906b51dfc9be1e230a/1408e4751_image000002.png"
+                    alt="Whispers in the Dark cover"
+                    className="w-full h-auto object-cover"
+                    style={{ aspectRatio: "480/300" }}
+                  />
                   {/* Bottom label */}
                   <div className="px-4 py-3 bg-card/80 backdrop-blur-sm border-t border-border/50 flex items-center justify-between">
-                    <span className="text-xs font-semibold text-foreground">{preview?.name}</span>
-                    <div className="flex gap-1">
-                      {PREVIEW_CYCLE.map((_, i) => (
-                        <div
-                          key={i}
-                          className="w-1.5 h-1.5 rounded-full transition-all duration-300"
-                          style={{ background: i === previewIdx ? (preview?.color ?? "#ec4899") : "rgba(255,255,255,0.2)" }}
-                        />
-                      ))}
+                    <div>
+                      <span className="text-xs font-semibold text-foreground block">Whispers in the Dark</span>
+                      <span className="text-[10px] text-muted-foreground">Blessed</span>
                     </div>
                   </div>
                 </div>
